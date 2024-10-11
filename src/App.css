@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
+/* Main styling for the game */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('./resources/background.jpg'); /* Replace with your image URL */
+  background-size: cover; /* Ensures the image covers the entire background */
+  background-repeat: no-repeat;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background for readability */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.fade-in {
+  opacity: 1 !important;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 3rem;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  border: 3px solid black;
+  background-color: white;
+  transition: border 0.5s ease, background-color 0.5s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.winning-square {
+  background-color: #8fbc8f;
+  border: 3px solid black;
+  transition: background-color 0.5s ease, border 0.5s ease;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.status {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+.restart {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 1rem;
+}
+
+.name-form {
+  display: flex;
+  flex-direction: column;
+  transition: opacity 0.5s ease;
+}
+
+.input-name {
+  margin: 10px 0;
+  padding: 10px;
+  font-size: 1.2rem;
+  border: 2px solid #000;
+  transition: border-color 0.3s ease;
+}
+
+.input-name:focus {
+  border-color: #007bff;
+}
+
+.symbol-choice {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.symbol-button {
+  font-size: 2rem;
+  padding: 10px 20px;
+  border: 2px solid #000;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.symbol-button:hover {
+  background-color: #ffc107;
 }
